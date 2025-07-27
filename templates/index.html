@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Fitness Tracker APP</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 50px;
+            font-family: 'Adobe Clean', 'adobe-clean', 'Trebuchet MS', sans-serif;
+            
+        }
+        
+        #container {
+            text-align: center;
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content:center;
+            flex-direction:column;
+            align-items: center;
+        }
+
+        #info {
+            text-align: left;
+            font-family: 'Adobe Clean', 'adobe-clean', 'Trebuchet MS', sans-serif;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        #sec_head {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        #predction {
+            font-family: 'Adobe Clean', 'adobe-clean', 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        #image-container {
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 15px;
+        }
+
+        #form-container {
+            text-align: center;
+            width: 900px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #forms {
+            display: flex;
+        }
+
+        #form {
+            margin: 10px;
+        }
+
+
+
+        form.p-3.text-center {
+            justify-content:center;
+        }
+
+        #upload-file {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 20px;
+        }
+    
+        #image-container img {
+            border-radius: 15px;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <!-- <div id="container">
+        <div id="image-container">
+            <img src="../static/web/frame.png" alt="Fitness Tracker Image" width="900px">
+        </div> -->
+        
+        <div id="form-container">
+            <form class="p-3 text-center" action='/', method="post" enctype="multipart/form-data">
+                <div id="forms">
+                    <div id="form">
+                        <h3 id="upload-file">Upload The Accelerometer File</h3>
+                        <input class="form-control" type="file" name="accfile" >
+                    </div>
+                    <div id="form">
+                        <h3 id="upload-file">Upload The Gyroscope File</h3>
+                        <input class="form-control" type="file" name="gyrfile" >
+                    </div>
+                </div>
+                <div>
+                    <input class="btn btn-primary mt-3"type="submit" value="Predict Exercise" >
+                </div>
+            </form>
+        </div>
+
+        {% if prediction %}
+            <p id="predction"> Exercise is a {{prediction}}</p>
+            <img src="{{ exr_img }}" alt="Exercise Image">
+        {% endif %}
+
+        {% if count_rep %}
+            <p id="predction"> Number of Repetitions: {{count_rep}}</p>
+            <img src="{{ count_rep_img }}" alt="Count Repetitions Image" width="900px">
+        {% endif %}
+
+
+        <div style="width: 900px; margin-top: 30px;">
+            <h3 id="sec_head">Problem Description:</h3>
+            <p id="info">Imagine yourself at the gym, pushing through your strength training routine, but wouldn’t it be amazing if you could ditch the expensive personal trainer and instead have a smart companion right on your wrist? Picture a device that not only tracks every move you make during your weightlifting sessions but also counts your repetitions, ensuring you stay on track with your fitness goals. That’s precisely the problem we’re tackling: the lack of automated tracking systems for free weight exercises, particularly in the realm of strength training.</p>
+            <h3 id="sec_head">Business Case (Related to the Egyptian Market):</h3>
+            <p id="info">In Egypt, fitness and wellness are becoming increasingly important aspects of people’s lives. With the growing awareness of the benefits of regular exercise, there’s a rising demand for innovative solutions to enhance workout experiences. However, the Egyptian fitness market still lacks comprehensive tools tailored specifically for strength training enthusiasts. By introducing context-aware applications for strength training, we have the opportunity to tap into this burgeoning market and cater to the needs of Egyptian gym-goers.</p>
+            <p id="info">The target group for this innovative solution includes fitness enthusiasts, athletes, and individuals seeking to improve their strength and overall fitness levels. With a culturally diverse population embracing various forms of exercise, including strength training, there’s immense potential to offer localized solutions that resonate with Egyptian consumers. By providing accessible, technology-driven solutions that aid in tracking workouts and ensuring proper form, we can empower individuals across Egypt to achieve their fitness goals more effectively.</p>
+            <p id="info">The article about this project that contains all the details on <a href="https://medium.com/@abdelrahman.m2922/fitness-tracker-based-on-ml-b604e1e884c2">Medium</a><br>The Full code on <a href="https://github.com/Veto2922/Fitness-tracker-based-on-ML-2">GitHub</a></p>
+        </div>
+        <section class="products">
+            <h2>Our Products</h2>
+            <div class="product">
+                <img src="dumbbell.jpg" alt="Dumbbell">
+                <h3>Dumbbells</h3>
+                <p>Build strength and tone your muscles.</p>
+            </div>
+            <div class="product">
+                <img src="yoga_mat.jpg" alt="Yoga Mat">
+                <h3>Yoga Mat</h3>
+                <p>Perfect for yoga, pilates, and stretching.</p>
+            </div>
+            <div class="product">
+                <img src="protein_powder.jpg" alt="Protein Powder">
+                <h3>Protein Powder</h3>
+                <p>Fuel your workouts and recover faster.</p>
+            </div>
+        </section>
+
+
+
+    </div>
+    
+</body>
+</html>
